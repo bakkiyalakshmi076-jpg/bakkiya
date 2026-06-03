@@ -1,0 +1,8 @@
+create database ecommerce;
+use ecommerce;
+create table amazon(
+product_id int auto_increment primary key,
+product_name varchar(15),
+product_price int,
+product_qty int
+);
