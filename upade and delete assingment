@@ -1,0 +1,17 @@
+create table balance(
+cust_id int primary key,
+cust_name varchar(100),
+Bank_Balance decimal(12,2),
+active_status varchar(10)
+);
+INSERT INTO Bank (cust_id, cust_name, bank_balance, active_status) VALUES
+(1, 'Priya', 1200.00, 'Active'),
+(2, 'pavun', 500.00, 'Active'),
+(3, 'smitha', 0.00, 'Active'),
+(4, 'merlin', 250.75, 'Active'),
+(5, 'Arun', 0.00, 'Inactive');
+
+update bank SET Active_status='inactive'WHERE Bank_Balance<500;
+delete FROM Bank WHERE Bank_Balance=0 AND Active-status='inactive';
+
+
