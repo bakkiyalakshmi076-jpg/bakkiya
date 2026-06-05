@@ -1,0 +1,21 @@
+create database e_commerce;
+use e_commerce;
+
+create table shopping
+(product_id int,
+product_name varchar(10),
+product_price int);
+insert into shopping values (1,'shirt',600),(2,'phant',700),(3,'tops',800),(4,'salwar',900);
+insert into shopping values (7,'t-shirt',900),(8,'baggy',400),(9,'mesh top',1000);
+
+SELECT product_name, price 
+FROM shopping 
+WHERE price = (SELECT MAX(price) FROM shopping);
+
+SELECT product_name, price 
+FROM shopping 
+WHERE price = (SELECT MIN(price) FROM shopping);
+
+
+
+
