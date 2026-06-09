@@ -1,0 +1,43 @@
+drop database shopping;
+create database shopping;
+use shopping;
+
+CREATE TABLE shopping(
+    product_id int auto_increment primary key,
+    product_name varchar(20),
+    product_price int
+);
+INSERT INTO shopping (product_id, product_name, product_price) VALUES
+(101, 'Laptop', 65000),
+(102, 'Mobile', 25000),
+(103, 'Headphones', 2000),
+(104, 'Keyboard', 1500);
+
+CREATE TABLE orders_table (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT,
+    order_status VARCHAR(20),
+    shipping_detail VARCHAR(100)
+    );
+INSERT INTO orders_table (product_id, order_status, shipping_detail) VALUES
+(101, 'Delivered', 'Bangalore'),
+(102, 'Shipped', 'Mumbai'),
+(102, 'Processing', 'Delhi'),
+(105, 'Pending', 'Chennai');
+
+select*from shopping;
+select*from orders_table;
+
+select*from shopping s left join orders_table o on s.product_id=o.product_id;
+select*from shopping s right join orders_table o on s.product_id=o.product_id;
+select*from shopping s inner join orders_table o on s.product_id=o.product_id;
+select*from shopping s left join orders_table o on s.product_id=o.product_id
+union 
+select*from shopping s right join orders_table o on s.product_id=o.product_id;
+
+
+
+
+
+
+
