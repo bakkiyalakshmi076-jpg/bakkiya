@@ -1,0 +1,22 @@
+use students;
+CREATE TABLE Students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    subject VARCHAR(50),
+    mark FLOAT,
+    course VARCHAR(50)
+);
+INSERT INTO Students (id, name, subject, mark, course) VALUES
+(1, 'Arjun', 'Maths', 85, 'B.Tech'),
+(2, 'Priya', 'Accounts', 42, 'B.Com'),
+(3, 'Ravi', 'Physics', 78, 'B.Sc'),
+(4, 'Meera', 'CS', 92, 'BCA'),
+(5, 'Karan', 'Chemistry', 55, 'B.Sc');
+
+SELECT id, name, subject, mark, course
+FROM Students
+WHERE mark > (SELECT AVG(mark) FROM Students);
+
+SELECT id, name, subject, mark, course
+FROM Students
+WHERE id IN (SELECT id FROM Students WHERE mark > 50);
